@@ -1,14 +1,25 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
 	public static void main(String[] args) {
 
-		ListaUno lista = new ListaUno();
+		List<Libro> lista = new ArrayList<>();
 
-		lista.aggiungiLibro(new Libro("Il piccolo principe", 1990));
-		lista.aggiungiLibro(new Libro("I pilastri della terra", 2000));
-		lista.aggiungiLibro(new Libro("Il grande impero", 2010));
+		lista.add(new Libro("Il piccolo principe", 1990));
+		lista.add(new Libro("I pilastri della terra", 2000));
+		lista.add(new Libro("Il grande impero", 2010));
 
-		lista.stampa();
+		Stampatore s;
+
+		s = new StampaOrdinato();
+		s.stampa(lista);
+		System.out.println("--------");
+		s = new StampaAlContrario();
+		s.stampa(lista);
+
+		System.out.println("--------");
 
 	}
 
